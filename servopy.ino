@@ -6,7 +6,6 @@ void setup(){
   Serial.begin(9600);
   Serial.setTimeout(50);
   myservo.attach(servoPin);
-
 }
 
 void loop()
@@ -15,8 +14,10 @@ void loop()
   String input_data;
   if(Serial.available())  // if data available in serial port
     { 
-    input_data = Serial.readStringUntil('\n'); // read data until newline  
+    // Read input data from python
+    input_data = Serial.readStringUntil('\n');
     pos = input_data.toFloat();
+    // Calculate pulse and send to servo
     t = deg2ms(pos);
     myservo.writeMicroseconds( t );
     delay(100);
@@ -25,11 +26,11 @@ void loop()
 
 float deg2ms(float alpha){
   int t;
-  // Return the microseconds to wait for the servo to be in
-  //a certain angle. The angles are defined as:
-  //       0
-  // [servo] 90
-  //      180
+  //  Return lenght of the HIGH pulse (in microseconds) to move the servo to
+  // a certain angle. The angles are defined as:
+  //         0
+  //   [servo] 90
+  //        180
   t = 700+(2500-700)*(1-(alpha/180));
   return t;
 }
