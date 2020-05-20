@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Info from:
+# https://www.timdejong.nl/blog/use-webcam-two-applications-under-linux-simultaneously-using-v4l2loopback?__cf_chl_jschl_tk__=30056614ead260770722d5e004dc35d0cb9a80f1-1589984635-0-AVr3-gmiuRyMxwP7GzOdd20Qq3uZ0rSmJ-9JbH-4UUZ87dcfJAVnzJJX2haRN8iVnlcaMGeE55GTqBm47nn5N6NOC0DDc_eWSHjXp-wUQSAn7WIY9pgKupM-xJyNs2cIJzbcDRtGW_M7zjj8YRLlGIwyRDZQkQ9fKJqK1heiFwtT1GgK-Ng8Ea4y7wIo9mqcv7bWUf7k59Q3FtNME2ex3SQQnI72cel_GbesCaPUAAIyyQib668HbR4_BjRXCYdjum-c91lp3-9MHH1GtXj34BrpMfXwoWoqsSlULaO_kqNCI49jX8YR4KYuWfYP2Dy8avK1y-fXuW7PoYWSkgyRiIIsPTHeWP7dF_ccqjtG2gTsDclpHoVcyGxzg1NlNW4cRnnpeH-csh7Ceep7pelcR7PVhKZCQKdK5fbb1cnHuEqSVJEQDgOzIH52tx7tjDhWpQ
+
 sudo depmod -a
 
 sudo modprobe v4l2loopback devices=2
