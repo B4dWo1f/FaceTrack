@@ -7,8 +7,16 @@ We need to install a few dependencies:
 ```
 $ sudo apt-get install python3-opencv 
 ```
+ - Python `serial` library:
+```
+sudo apt-get install python3-serial
+```
 
-First you need to upload the arduino code into the arduino. You can check if it works using the code in ``` myservo.py ```
+First you need to upload the arduino code into the arduino. You can check if it works using the code in `myservo.py`  
+
+## The circuit
+Using the servo `SG90` the scheme for the connections is pretty straight forward
+![Circuit design](circuit.png)
 
 
 Then you can just run
