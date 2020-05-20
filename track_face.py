@@ -22,7 +22,7 @@ except serial.serialutil.SerialException:
    exit(1)
 alpha0 = 120
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(4)
 #kernel = np.ones((5,5),np.uint8)
 
 print('Initial positioning')
@@ -32,13 +32,14 @@ arduino.write( pos_x )
 sleep(1)
 print('done')
 
+flip = False
 out = False
 pos_x = '90'
 pos_y = '90'
 prev_angle = 90
 while not out:
    a, img = cap.read()
-   img = cv2.flip( img, 0 )
+   if flip: img = cv2.flip( img, 0 )
    vid_y, vid_x, _ = img.shape
 
    # Look for faces
@@ -58,6 +59,7 @@ while not out:
       x0_deg = 180 - (170*(x0/vid_x)+10)
 
       x0_deg = (0.5-(x0/vid_x))*2  # \in [-1,1]
+      if not flip: x0_deg *= -1
       if abs(x0_deg) > 0.05:
          x0_deg = 5*x0_deg  #/abs(x0_deg)
       else: x0_deg = 0
